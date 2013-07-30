@@ -73,6 +73,14 @@ module Hub
         base.extend Forwardable
         base.def_delegators :'self.class', :git_config, :git_command
       end
+
+      def self.included(klass)
+        klass.class_eval do
+          def git_reader
+            @git_reader ||= GitReader.new ENV['GIT']
+          end
+        end
+      end
     end
 
     class Error < RuntimeError; end
