@@ -2,6 +2,7 @@ require 'uri'
 require 'yaml'
 require 'forwardable'
 require 'fileutils'
+require 'hub/context'
 
 module Hub
   # Client for the GitHub v3 API.
